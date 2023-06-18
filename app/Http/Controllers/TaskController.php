@@ -8,12 +8,15 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    public function homepage(){
+        return view('homepage');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('homepage');
+        return view('tasks.index');
     }
 
     /**
@@ -30,22 +33,16 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Task $task)
-    {
-        //
+        return view('tasks.edit', compact('task'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(Task $task)
     {
-        //
+        $task->delete(); 
+        session()->flash('task', 'Task eliminato correttamente');
     }
 }

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [TaskController::class, 'index'])->name('homepage');
+Route::get('/', [TaskController::class, 'homepage'])->name('homepage');
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index')->middleware('auth');
+Route::get('/tasks/crea', [TaskController::class, 'create'])->name('tasks.create')->middleware('auth');
+Route::get('/tasks/{task}/modifica', [TaskController::class, 'edit'])->name('tasks.edit')->middleware('auth');
 
-Route::get('/tasks/crea', [TaskController::class, 'create'])->name('tasks.create');
