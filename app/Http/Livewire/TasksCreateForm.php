@@ -9,12 +9,11 @@ use Livewire\Component;
 class TasksCreateForm extends Component
 {
 
-    public $title, $description, $category;
+    public $title, $description;
 
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'category' => 'required',
     ];
 
     public function updated($propertyName)
@@ -28,9 +27,8 @@ class TasksCreateForm extends Component
         Task::create([
             'title' => $this->title,
             'description' => $this->description,
-            'category' => $this->category,
         ]);
-        $this->reset('title', 'description', 'category');
+        $this->reset('title', 'description');
         session()->flash('task', 'Task creato!');
     }
 
