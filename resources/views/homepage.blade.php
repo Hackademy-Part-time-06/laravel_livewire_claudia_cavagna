@@ -1,11 +1,11 @@
 <x-main>
     <div class="container text-center">
         <div class="row">
-            <div class="col-4 bg-danger">
+            <div class="col-3 mt-5 me-5">
                 <livewire:lateral-organizer/>
             </div>
-            <div class="col-8 bg-warning">
-                tabella tasks
+            <div class="col-8 mt-5">
+                <livewire:tasks-table/>
             </div>
         </div>
     </div>
