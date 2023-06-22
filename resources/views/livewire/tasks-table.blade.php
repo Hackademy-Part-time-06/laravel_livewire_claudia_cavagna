@@ -19,7 +19,7 @@
             <i class="bi bi-pencil-square"></i>
           </a>
           <button wire:click="destroy({{$task}})" class="btn btn-danger">
-            <i class="bi bi-trash-fill"></i>
+            <i class="bi bi-trash-fill text-dark"></i>
           </button> 
         </td>
       </tr>
