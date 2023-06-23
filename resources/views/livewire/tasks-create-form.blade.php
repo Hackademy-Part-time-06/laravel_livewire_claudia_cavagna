@@ -20,6 +20,17 @@
       <span class="error text-danger">{{$message}}</span>
       @enderror
     </div>
+    <label for="category_id" class="form-label">Categoria</label>
+    <select class="form-select" aria-label="Default select example" id="category_id" wire:model="category_id">
+      <option selected>Seleziona categoria</option>
+      @foreach($categories as $category)
+      <option value="{{$category->id}}">
+        {{$category->name}}
+      </option>
+      @endforeach
+    </select>
     <button type="submit" class="btn btn-primary">Salva</button>
+
+    <a href="{{route('categories.create')}}">Aggiungi categoria</a>
   </form>
 </div>

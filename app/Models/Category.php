@@ -9,5 +9,9 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category'];
+    protected $fillable = ['name'];
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
 }

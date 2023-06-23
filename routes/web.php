@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\TaskController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index')->mid
 Route::get('/tasks/crea', [TaskController::class, 'create'])->name('tasks.create')->middleware('auth');
 Route::get('/tasks/{task}/modifica', [TaskController::class, 'edit'])->name('tasks.edit')->middleware('auth');
 
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index')->middleware('auth');
+Route::get('/categories/crea', [CategoryController::class, 'create'])->name('categories.create')->middleware('auth');
+/*Route::get('/categories/{category}/modifica', [CategoryController::class, 'edit'])->name('categories.edit')->middleware('auth');*/

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Task;
 use Livewire\Component;
+use App\Models\Category;
 
 
 class TasksCreateForm extends Component
@@ -14,6 +15,7 @@ class TasksCreateForm extends Component
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
+        
     ];
 
     public function updated($propertyName)
@@ -27,8 +29,9 @@ class TasksCreateForm extends Component
         Task::create([
             'title' => $this->title,
             'description' => $this->description,
+            'category_id' => $this->category_id,
         ]);
-        $this->reset('title', 'description');
+        $this->reset('title', 'description', 'category_id');
         session()->flash('task', 'Task creato!');
     }
 
