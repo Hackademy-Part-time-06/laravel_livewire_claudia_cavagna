@@ -7,13 +7,13 @@ use Livewire\Component;
 
 class TasksTable extends Component
 {
-
+    
     public function destroy(Task $task)
     {
         $task->delete(); 
-        session()->flash('tasks', 'Task successfully updated.');
+        session()->flash('tasks', 'Task eliminato');
     }
-
+    
     
     public function render()
     {

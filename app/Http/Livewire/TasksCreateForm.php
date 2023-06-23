@@ -10,7 +10,12 @@ use App\Models\Category;
 class TasksCreateForm extends Component
 {
 
-    public $title, $description;
+    public $title, $description, $category_id;
+    public $categories;
+
+    public function mount(){
+        $this->categories = Category::all();
+    }
 
     protected $rules = [
         'title' => 'required',

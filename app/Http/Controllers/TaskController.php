@@ -17,7 +17,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('tasks.index');
+        $categories = Category::all();
+        return view('tasks.index', compact('categories'));
     }
 
     /**
@@ -25,8 +26,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('tasks.create', compact('categories'));
+        
+        return view('tasks.create');
     }
 
 
@@ -42,9 +43,8 @@ class TaskController extends Controller
      * Remove the specified resource from storage.
      */
 
-    public function destroy(Task $task)
+    public function destroy()
     {
-        $task->delete(); 
-        session()->flash('task', 'Task eliminato correttamente');
+        //
     }
 }

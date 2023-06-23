@@ -1,7 +1,7 @@
 <div class="p-5 container mt-5 shadow text-center">
   @if (session()->has('task'))
   <div class="alert alert-success">
-      {{ session('task') }}
+    {{ session('task') }}
   </div>
   @endif
   <form wire:submit.prevent="store">
@@ -29,8 +29,14 @@
       </option>
       @endforeach
     </select>
-    <button type="submit" class="btn btn-primary">Salva</button>
-
-    <a href="{{route('categories.create')}}">Aggiungi categoria</a>
+    <div class="mt-2">
+      <a href="{{route('categories.create')}}">Aggiungi categoria</a>
+    </div>
+    <div class="mt-3">
+      <button type="submit" class="btn btn-primary">Salva</button>
+    </div>
+    
   </form>
 </div>
+
+
